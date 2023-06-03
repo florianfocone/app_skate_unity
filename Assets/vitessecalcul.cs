@@ -28,21 +28,17 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
     }
 
 
-  
-
-
-    // Start is called before the first frame update
-    public void OnUpdateSelected(BaseEventData data)
+  void Update()
     {
         if (isPressed)
         {
-            eclair.SetActive(true);
 
-            if (powerchange.powerint==1)
+
+            if (powerchange.powerint == 1)
             {
                 vitesseint = 1;
             }
-            else if(powerchange.powerint<=1)
+            else if (powerchange.powerint <= 1)
             {
                 vitesseint = 1;
             }
@@ -76,11 +72,70 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
             {
                 powercontrol.interactable = false;
             }
-  
+
 
         }
         else
-        vitesseint = 1;
+        {
+
+            if (vitesseint > 10)
+            {
+                timeLeft -= Time.deltaTime;
+                if (timeLeft < 0)
+                {
+                    timeLeft = 0.05f;
+                    vitesseint--;
+                }
+
+
+
+                deconnect.interactable = false;
+
+
+                connectb.interactable = false;
+
+
+                quiter.interactable = false;
+
+
+                devicesB.interactable = false;
+
+
+                powercontrol.interactable = false;
+
+
+            }
+
+
+            if (vitesseint <= 10)
+            {
+                vitesseint = 0;
+
+
+                if (deconnect.interactable == false)
+                {
+                    deconnect.interactable = true;
+                }
+                if (connectb.interactable == false)
+                {
+                    connectb.interactable = true;
+                }
+                if (quiter.interactable == false)
+                {
+                    quiter.interactable = true;
+                }
+                if (devicesB.interactable == false)
+                {
+                    devicesB.interactable = true;
+                }
+                if (powercontrol.interactable == false)
+                {
+                    powercontrol.interactable = true;
+                }
+            }
+
+        }
+
 
         if (vitesseint < 10)
         {
@@ -93,50 +148,25 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
             vitesse = vitesseint.ToString();
         }
 
+    }
+
+
+    // Start is called before the first frame update
+    public void OnUpdateSelected(BaseEventData data)
+    {
+        
     }
     public void OnPointerDown(PointerEventData data)
     {
         isPressed = true;
-        
+        eclair.SetActive(true);
     }
     public void OnPointerUp(PointerEventData data)
     {
         isPressed = false;
-        vitesseint = 1;
-        if (vitesseint < 10)
-        {
-            vit.text = "0" + vitesseint.ToString();
-            vitesse = "0" + vitesseint.ToString();
-        }
-        else
-        {
-            vit.text = vitesseint.ToString();
-            vitesse = vitesseint.ToString();
-        }
-
         eclair.SetActive(false);
 
 
-        if (deconnect.interactable == false)
-        {
-            deconnect.interactable = true;
-        }
-        if (connectb.interactable == false)
-        {
-            connectb.interactable = true;
-        }
-        if (quiter.interactable == false)
-        {
-            quiter.interactable = true;
-        }
-        if (devicesB.interactable == false)
-        {
-            devicesB.interactable = true;
-        }
-        if (powercontrol.interactable == false)
-        {
-            powercontrol.interactable = true;
-        }
 
     }
 }
