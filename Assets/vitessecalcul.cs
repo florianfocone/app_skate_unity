@@ -42,7 +42,7 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
             {
                 vitesseint = 1;
             }
-            else if (powerchange.powerint > 24 && vitesseint < powerchange.powerint)
+            else if (powerchange.powerint > 2 && vitesseint < powerchange.powerint)
             {
                 timeLeft -= Time.deltaTime;
                 if (timeLeft < 0)
