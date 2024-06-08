@@ -283,7 +283,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 826398175}
         m_TargetAssemblyTypeName: BT, Assembly-CSharp
         m_MethodName: closeapp
         m_Mode: 1
