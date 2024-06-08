@@ -114,7 +114,7 @@ public class BT : MonoBehaviour
             if (timeLeft < 0)
             {
                 timeLeft = 0.15f;
-                string vitesse = "x" + vitessecalcul.vitesse + "y";
+                string vitesse = vitessecalcul.vitesse + "\n";
                 device.send(System.Text.Encoding.ASCII.GetBytes(vitesse));
             }
         }
@@ -124,7 +124,7 @@ public class BT : MonoBehaviour
     {
         if(device!=null)
         {
-            string vitesse = "x01y";
+            string vitesse = "0\n";
             device.send(System.Text.Encoding.ASCII.GetBytes(vitesse));
             StartCoroutine(waiter());
         }
@@ -142,8 +142,8 @@ public class BT : MonoBehaviour
     void OnApplicationQuit()
     {
         Send0();
-        vitessecalcul.vitesseint = 1;
-        vitessecalcul.vitesse = "01";
+        vitessecalcul.vitesseint = 0;
+        vitessecalcul.vitesse = "0";
     }
 
     // Méthode appelée lorsqu'on perd/reprend le focus de l'application
@@ -151,8 +151,8 @@ public class BT : MonoBehaviour
     {
         isPaused = !hasFocus;
         Send0();
-        vitessecalcul.vitesseint = 1;
-        vitessecalcul.vitesse = "01";
+        vitessecalcul.vitesseint = 0;
+        vitessecalcul.vitesse = "0";
     }
 
     // Méthode appelée lorsque l'application est mise en pause ou reprend
@@ -160,8 +160,8 @@ public class BT : MonoBehaviour
     {
         isPaused = pauseStatus;
         Send0();
-        vitessecalcul.vitesseint = 1;
-        vitessecalcul.vitesse = "01";
+        vitessecalcul.vitesseint = 0;
+        vitessecalcul.vitesse = "0";
     }
 
     // Méthode appelée lors de la destruction de l'objet

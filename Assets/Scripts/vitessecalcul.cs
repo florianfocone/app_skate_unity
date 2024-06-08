@@ -6,7 +6,7 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
 {
     public static Text vit; // Référence au composant Text représentant la vitesse
     public static int vitesseint = 0; // Valeur de la vitesse (statique pour être accessible de manière globale)
-    public static string vitesse = "00"; // Chaîne de caractères représentant la vitesse (statique pour être accessible de manière globale)
+    public static string vitesse = "0"; // Chaîne de caractères représentant la vitesse (statique pour être accessible de manière globale)
     private float timeLeft = 0.0025f; // Temps restant pour l'incrémentation/decrémentation de la vitesse
     public GameObject eclair; // Référence à un objet GameObject représentant un éclair
 
@@ -104,8 +104,8 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
     {
         if (vitesseint <= 1)
         {
-            vit.text = "0" + vitesseint.ToString();
-            vitesse = "0" + vitesseint.ToString();
+            vit.text =  vitesseint.ToString();
+            vitesse = vitesseint.ToString();
         }
         else
         {
