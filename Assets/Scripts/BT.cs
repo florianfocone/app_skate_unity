@@ -87,18 +87,22 @@ public class BT : MonoBehaviour
     // Méthode appelée à chaque frame
     void Update()
     {
-        // Met à jour le statut de la connexion
-        if (device.IsConnected)
+        if (device!=null)
         {
-            status.text = "Connecté";
-        }
-        else
-        {
-            status.text = "Déconnecté";
-        }
+            // Met à jour le statut de la connexion
+            if (device.IsConnected)
+            {
+                status.text = "Connecté";
+            }
+            else
+            {
+                status.text = "Déconnecté";
+            }
 
-        // Envoie des données au périphérique
-        Send();
+            // Envoie des données au périphérique
+            Send();
+        }
+      
     }
 
     // Envoie des données au périphérique Bluetooth
@@ -118,9 +122,13 @@ public class BT : MonoBehaviour
 
     private void Send0()
     {
-        string vitesse = "x01y";
-        device.send(System.Text.Encoding.ASCII.GetBytes(vitesse));
-        StartCoroutine(waiter());
+        if(device!=null)
+        {
+            string vitesse = "x01y";
+            device.send(System.Text.Encoding.ASCII.GetBytes(vitesse));
+            StartCoroutine(waiter());
+        }
+       
     }
 
     System.Collections.IEnumerator waiter()

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDownHandler, IPointerUpHandler
 {
     public static Text vit; // Référence au composant Text représentant la vitesse
-    public static int vitesseint = 1; // Valeur de la vitesse (statique pour être accessible de manière globale)
-    public static string vitesse = "01"; // Chaîne de caractères représentant la vitesse (statique pour être accessible de manière globale)
+    public static int vitesseint = 0; // Valeur de la vitesse (statique pour être accessible de manière globale)
+    public static string vitesse = "00"; // Chaîne de caractères représentant la vitesse (statique pour être accessible de manière globale)
     private float timeLeft = 0.0025f; // Temps restant pour l'incrémentation/decrémentation de la vitesse
     public GameObject eclair; // Référence à un objet GameObject représentant un éclair
 
@@ -30,13 +30,13 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
         if (isPressed)
         {
             // Logique pour ajuster la vitesse en fonction de la puissance
-            if (powerchange.powerint == 1)
+            if (powerchange.powerint == 0)
             {
-                vitesseint = 1;
+                vitesseint = 0;
             }
             else if (powerchange.powerint <= 1)
             {
-                vitesseint = 1;
+                vitesseint = 0;
             }
             else if (powerchange.powerint > 2 && vitesseint < powerchange.powerint)
             {
@@ -54,7 +54,7 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
         else // Si le bouton n'est pas enfoncé
         {
             // Logique pour ajuster la vitesse lorsqu'elle est supérieure à 10
-            if (vitesseint > 4)
+            if (vitesseint > 1)
             {
                 timeLeft -= Time.deltaTime;
                 if (timeLeft < 0)
@@ -67,10 +67,11 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
             }
 
             // Réactive l'interaction des boutons et du slider lorsque la vitesse est inférieure ou égale à 10
-            if (vitesseint <= 4)
+            if (vitesseint <= 1)
             {
                 EnableButtonInteractables();
             }
+            Debug.Log(vitesseint);
         }
 
         // Affiche la vitesse dans le composant Text
@@ -101,7 +102,7 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
     // Affiche la vitesse dans le composant Text
     void DisplaySpeed()
     {
-        if (vitesseint < 4)
+        if (vitesseint <= 1)
         {
             vit.text = "0" + vitesseint.ToString();
             vitesse = "0" + vitesseint.ToString();
