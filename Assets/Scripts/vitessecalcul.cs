@@ -54,7 +54,7 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
         else // Si le bouton n'est pas enfoncé
         {
             // Logique pour ajuster la vitesse lorsqu'elle est supérieure à 10
-            if (vitesseint > 10)
+            if (vitesseint > 4)
             {
                 timeLeft -= Time.deltaTime;
                 if (timeLeft < 0)
@@ -67,7 +67,7 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
             }
 
             // Réactive l'interaction des boutons et du slider lorsque la vitesse est inférieure ou égale à 10
-            if (vitesseint <= 10)
+            if (vitesseint <= 4)
             {
                 EnableButtonInteractables();
             }
@@ -101,7 +101,7 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
     // Affiche la vitesse dans le composant Text
     void DisplaySpeed()
     {
-        if (vitesseint < 10)
+        if (vitesseint < 4)
         {
             vit.text = "0" + vitesseint.ToString();
             vitesse = "0" + vitesseint.ToString();
