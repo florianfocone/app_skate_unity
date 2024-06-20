@@ -155,7 +155,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.arashi.skate
+    Android: com.arashi.s8
     iPhone: com.arashi.V2
   buildNumber:
     Standalone: 0
@@ -274,7 +274,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: f09d516644031f44bb837e86d28f2f62, type: 3}
+      m_Icon: {fileID: 2800000, guid: 49146e45072efd443983ead9ee492cc1, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
