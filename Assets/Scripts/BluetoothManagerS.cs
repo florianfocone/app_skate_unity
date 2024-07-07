@@ -34,7 +34,6 @@ public class BluetoothManagerS : MonoBehaviour
         if (timeLeft < 0)
         {
             timeLeft = 0.15f;
-          //  string vitesse = vitessecalcul.vitesse + "\n"; Debug.Log(vitesse);
             WriteData();
            
         }
