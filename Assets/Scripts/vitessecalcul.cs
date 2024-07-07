@@ -8,7 +8,6 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
     public static int vitesseint = 0; // Valeur de la vitesse (statique pour être accessible de manière globale)
     public static string vitesse = "0"; // Chaîne de caractères représentant la vitesse (statique pour être accessible de manière globale)
     private float timeLeft = 0.0025f; // Temps restant pour l'incrémentation/decrémentation de la vitesse
-    public GameObject eclair; // Référence à un objet GameObject représentant un éclair
 
     private bool isPressed; // Indique si le bouton est enfoncé
 
@@ -19,7 +18,7 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
     // Méthode appelée au démarrage
     void Start()
     {
-        eclair.SetActive(false); // Désactive l'éclair au démarrage
+       
         vit = GameObject.Find("vitesse").GetComponent<Text>(); // Trouve le composant Text par son nom
     }
 
@@ -71,7 +70,7 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
             {
                 EnableButtonInteractables();
             }
-            Debug.Log(vitesseint);
+        //    Debug.Log(vitesseint);
         }
 
         // Affiche la vitesse dans le composant Text
@@ -118,13 +117,13 @@ public class vitessecalcul : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
     public void OnPointerDown(PointerEventData data)
     {
         isPressed = true; // Indique que le bouton est enfoncé
-        eclair.SetActive(true); // Active l'éclair
+  
     }
 
     // Méthode appelée lorsqu'un clic est relâché sur l'objet
     public void OnPointerUp(PointerEventData data)
     {
         isPressed = false; // Indique que le bouton n'est plus enfoncé
-        eclair.SetActive(false); // Désactive l'éclair
+  
     }
 }

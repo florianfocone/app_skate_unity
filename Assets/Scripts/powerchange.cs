@@ -69,6 +69,6 @@ public class powerchange : MonoBehaviour
         // Affiche la progression de la puissance dans le slider correspondant
         sliderDessus.value = progressPower;
         // Affiche la progression de la puissance dans la console à des fins de débogage
-        Debug.Log(progressPower);
+       //  Debug.Log(progressPower);
     }
 }
